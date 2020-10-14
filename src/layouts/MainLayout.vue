@@ -12,7 +12,8 @@
   </q-layout>
 </template>
 <script>
-export default {
-    ​​​​​name:'MainLayout',  components: {​​​​​  }​​​​​,
-    }​​​​​
+export default {
+  name: "MainLayout",
+  components: {},
+};
 </script>
