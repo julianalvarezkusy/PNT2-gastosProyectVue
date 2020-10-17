@@ -1,9 +1,9 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+    <q-form @submit="onAgregar" @reset="onLimpiar" class="q-gutter-md">
       <q-input
         filled
-        v-model="name"
+        v-model="descripcion"
         label="Descripción"
         hint="Descripción del gasto"
         lazy-rules
@@ -12,7 +12,7 @@
       <q-input
         filled
         type="number"
-        v-model="age"
+        v-model="monto"
         label="Monto"
         lazy-rules
         :rules="[(val) => (val !== null && val !== '') || 'Ingrese monto']"
@@ -35,7 +35,27 @@
 <style></style>
 
 <script>
+import {AGREGAR_GASTO} from '../store/gastos/types'
 export default {
   name: "CargarGasto",
+  data(){
+    return {
+      descripcion: null,
+      monto: 0
+    }
+  },
+  methods: {
+    onAgregar: function (){
+      let gasto = {
+        descripcion: this.descripcion,
+        monto: this.monto
+      }
+      this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
+    },
+    onLimpiar: function (){
+      this.monto= 0,
+      this.descripcion=''
+    }
+  }
 };
 </script>

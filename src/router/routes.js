@@ -1,20 +1,27 @@
+// import main from "../layouts/MainLayout";
+
+const MainLayout = () => import("../layouts/MainLayout.vue");
+
+
 const routes = [
   {
-    path: "/",
-    components: () =>
-      import(
-        "C:/Users/jualvarez/Documents/PNT2/ProyectoVueQuasar/indumentariaproject/src/layouts/MainLayout.vue"
-      ),
-    children: [
-      {
-        path: "",
-        components: () => import("./pages/Index.vue"),
-      },
-    ],
+    path: "/Home",
+    components: MainLayout,
+
+    // components: () => import("../layouts/LayoutTest.vue"),
+    // children: [
+    //   {
+    //     path: "Home",
+    //     components: () => import("../pages/Index.vue"),
+    //   },
+    //   {
+    //     path: "Test",
+    //     components: () => import("../pages/Test.vue"),
+    //   },
+    // ],
   },
-  // Always leave this as last one,
-  // but you can also remove it
-  { path: "*", components: () => import("./pages/Error404.vue") },
+
+  { path: "*", components: () => import("../pages/Error404.vue") },
 ];
 
 export default routes;
