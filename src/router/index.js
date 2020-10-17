@@ -1,30 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-//import routes from "./routes";
+// import Routes from "./routes.js";
 import PageIndex from "../pages/Index";
-import ListadoGastos from "../components/ListadoGastos";
+// import ListadoGastos from "../components/ListadoGastos";
+// import MainLayout from "../layouts/MainLayout";
 
 Vue.use(VueRouter);
-
-//console.log(ListadoGastos);
 
 const router = new VueRouter({
   routes: [
     {
       path: "/",
-      name: "PageIndex",
-      component: PageIndex,
+      name: "MainLayout",
+      // component: MainLayout,
+      component: () => import("../layouts/MainLayout"),
       children: [
         {
-          path: "ListadoGastos",
-          name: "ListadoGastos",
-          component: ListadoGastos,
+          path: "",
+          name: "PageIndex",
+          component: PageIndex,
         },
       ],
     },
   ],
 });
 
-console.log(router);
+// console.log(routes);
 
 export default router;

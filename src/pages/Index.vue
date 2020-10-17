@@ -1,15 +1,16 @@
 <template>
-  <q-layout>
-    <CargarGasto />
+  <q-page class="flex flex-center">
 
-  </q-layout>
+               <CargarGasto />
+           <ListadoGastos />
+  </q-page>
 </template>
 
 <script>
 import CargarGasto from "../components/CargarGasto";
-// import ListadoGastos from "../components/ListadoGastos";
+import ListadoGastos from "../components/ListadoGastos";
 export default {
   name: "PageIndex",
-  components: { CargarGasto },
+  components: { CargarGasto, ListadoGastos },
 };
 </script>
