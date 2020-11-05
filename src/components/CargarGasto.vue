@@ -41,14 +41,16 @@ export default {
   data(){
     return {
       descripcion: null,
-      monto: 0
+      monto: 0,
+      total: 0
     }
   },
   methods: {
     onAgregar: function (){
       let gasto = {
         descripcion: this.descripcion,
-        monto: this.monto
+        monto: parseInt(this.monto),
+        total: this.total
       }
       this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
     },

@@ -3,11 +3,14 @@
     <q-list bordered separator>
 
       <q-item clickable v-ripple v-for="gasto in gastos" :key="gasto.descripcion">
-        <q-item-section>
-          <q-item-label>{{ gasto.monto }} - {{ gasto.descripcion }}  </q-item-label>
-          <!-- <q-item-label caption>{{ cpa.negocio.label  }}</q-item-label> -->
-          <!-- <q-checkbox :value= cpa.comprado /> -->
+        <q-item-section v-on:click = "gasto.monto = gasto.monto +1">
+          <q-item-label>{{ gasto.monto }}</q-item-label>
+          <q-item-label caption>{{ gasto.descripcion }}  </q-item-label>
         </q-item-section>
+      </q-item>
+      <q-item>
+        <q-item-label>Total</q-item-label>
+        <q-item-label  v-for="gasto in gastos" :key="gasto.descripcion">{{gasto.monto}}</q-item-label>
       </q-item>
 
     </q-list>
