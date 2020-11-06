@@ -1,6 +1,15 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
     <q-form @submit="onAgregar" @reset="onLimpiar" class="q-gutter-md">
+            <q-select
+        filled
+        v-model="categoria"
+        :options= "options"
+        label="Categoria"
+        hint="Categoria del Gasto"
+        lazy-rules
+        :rules="[(val) => (val && val.length > 0) || 'Seleccione una categoria']"
+      />
       <q-input
         filled
         v-model="descripcion"
@@ -42,17 +51,22 @@ export default {
     return {
       descripcion: null,
       monto: 0,
-      total: 0
+      total: 0,
+      categoria: null,
+      options: ['Verduleria','Carniceria','Merceria']
     }
   },
   methods: {
     onAgregar: function (){
       let gasto = {
+        categoria: this.categoria,
         descripcion: this.descripcion,
         monto: parseInt(this.monto),
         total: this.total
       }
       this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
+      this.onLimpiar()
+      window.confirm("Gasto agregado con éxito")
     },
     onLimpiar: function (){
       this.monto= 0,
