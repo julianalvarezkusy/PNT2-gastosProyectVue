@@ -6,7 +6,7 @@
         v-model="categoria"
         :options= "options"
         label="Categoria"
-        hint="Categoria del Gasto"
+        hint="Categoria del Ingreso"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Seleccione una categoria']"
       />
@@ -14,7 +14,7 @@
         filled
         v-model="descripcion"
         label="Descripción"
-        hint="Descripción del gasto"
+        hint="Descripción del Ingreso"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Ingrese la descripción']"
       />
@@ -44,21 +44,21 @@
 <style></style>
 
 <script>
-import {AGREGAR_GASTO} from '../store/gastos/types'
+import {AGREGAR_INGRESO} from '../store/ingresos/types'
 export default {
-  name: "CargarGasto",
+  name: "CargarIngreso",
   data(){
     return {
       descripcion: null,
       monto: "",
       total: 0,
       categoria: null,
-      options: ['Verduleria','Carniceria','Merceria']
+      options: ['Sueldo', 'Ganancias', 'Inversiones','Regalos']
     }
   },
   methods: {
     onAgregar: function (){
-      let gasto = {
+      let ingreso = {
         categoria: this.categoria,
         descripcion: this.descripcion,
         monto: parseFloat(this.monto),
@@ -66,7 +66,7 @@ export default {
         updateStamp: null
 
       }
-      this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
+      this.$store.dispatch('ingresos/' + AGREGAR_INGRESO, ingreso)
       this.onLimpiar()
       // window.confirm("Gasto agregado con éxito")
     },

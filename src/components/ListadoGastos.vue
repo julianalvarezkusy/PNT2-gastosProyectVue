@@ -1,4 +1,5 @@
 <template>
+<div>
   <div style="width:500px">
     <q-list bordered separator>
 
@@ -15,11 +16,19 @@
           
           <q-icon name="backspace" v-on:click = "remover(gasto)"></q-icon></q-item-section>
       </q-item>
+      <q-item>
+        <q-item-label>Total</q-item-label>
+        <q-item-label side>{{total}}</q-item-label>
+        
+
+      </q-item>
 
 
     </q-list>
+
   </div>
 
+</div>
 </template>
 <script>
 
@@ -52,8 +61,6 @@ export default {
       this.$store.state.gastos.total -= oldGasto
       this.$store.state.gastos.total += parseFloat(gasto.monto)
       gasto.updateStamp = new Date()
-      console.log('Estás editando')
-      console.log(this.gastos)
     },
     prompt: function(){
 

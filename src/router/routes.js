@@ -7,6 +7,7 @@ const routes = [
   {
     path: "/Home",
     components: MainLayout,
+  
 
     // components: () => import("../layouts/LayoutTest.vue"),
     // children: [
@@ -22,6 +23,7 @@ const routes = [
   },
 
   { path: "*", components: () => import("../pages/Error404.vue") },
+  
 ];
 
 export default routes;
