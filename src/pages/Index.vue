@@ -16,6 +16,9 @@
           </q-tab-panel>
           <q-tab-panel name="listarGasto">
             <ListadoGastos/>
+            <hr/>
+            <Total/>
+
           </q-tab-panel>
         </q-tab-panels>
       </div>
@@ -26,9 +29,10 @@
 <script>
 import CargarGasto from "../components/CargarGasto";
 import ListadoGastos from "../components/ListadoGastos";
+import Total from '../components/TotalCard'
 export default {
   name: "PageIndex",
-  components: { CargarGasto, ListadoGastos },
+  components: { CargarGasto, ListadoGastos , Total},
   data(){
     return{
       tab:'tabs'

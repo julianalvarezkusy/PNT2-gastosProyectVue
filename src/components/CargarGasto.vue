@@ -20,7 +20,7 @@
       />
       <q-input
         filled
-        type="number"
+        type="text"
         v-model="monto"
         label="Monto"
         lazy-rules
@@ -50,7 +50,7 @@ export default {
   data(){
     return {
       descripcion: null,
-      monto: 0,
+      monto: "",
       total: 0,
       categoria: null,
       options: ['Verduleria','Carniceria','Merceria']
@@ -61,7 +61,7 @@ export default {
       let gasto = {
         categoria: this.categoria,
         descripcion: this.descripcion,
-        monto: parseInt(this.monto),
+        monto: parseFloat(this.monto),
         total: this.total
       }
       this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
@@ -69,7 +69,7 @@ export default {
       window.confirm("Gasto agregado con éxito")
     },
     onLimpiar: function (){
-      this.monto= 0,
+      this.monto= "",
       this.descripcion=''
     }
   }
