@@ -19,11 +19,11 @@ export default {
   },
   computed:{
     gastos: function  (){
-    console.log(this.$store.state.gastos.gastos)
+
     return this.$store.state.gastos.gastos
   },
     total: function(){
-      console.log(this.$store.state.gastos.total)
+
       return this.$store.state.gastos.total
       
     }},

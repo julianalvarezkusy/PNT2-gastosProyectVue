@@ -62,7 +62,9 @@ export default {
         categoria: this.categoria,
         descripcion: this.descripcion,
         monto: parseFloat(this.monto),
-        total: this.total
+        creationStamp: new Date(),
+        updateStamp: null
+
       }
       this.$store.dispatch('gastos/' + AGREGAR_GASTO, gasto)
       this.onLimpiar()

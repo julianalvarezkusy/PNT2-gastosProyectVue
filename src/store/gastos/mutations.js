@@ -4,10 +4,21 @@ export default {
   [types.AGREGAR_GASTO]: function(state, data) {
     state.gastos.push(data);
     state.total = state.total + data.monto
-    console.log("MUTACION: " + data.total);
-    console.log("MUTACION - STATE: "+state.total)
+
   },
-  // [types.ELIMINAR_GASTO]: function(state, data){
-  //   state.total = total + data
-  // }
+
+  [types.ELIMINAR_GASTO]: function(state, data){
+
+    let index = state.gastos.indexOf(data)
+
+    if(index != -1){
+      state.gastos.splice(index,1)
+      state.total = state.total - data.monto
+      
+
+    }else{
+      console.log("ERROR: el elemento no existe")
+    }
+    
+  }
 };
